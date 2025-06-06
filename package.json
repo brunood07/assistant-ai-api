@@ -1,0 +1,42 @@
+{
+  "name": "assistant-ai-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsup src --out-dir build",
+    "dev": "tsx watch src/main.ts",
+    "start": "node build/main.js",
+    "test": "vitest run",
+    "test:cov": "vitest run --coverage",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui",
+    "lint": "eslint",
+    "prepare": "husky install",
+    "vercel-build": "npx prisma generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcryptjs": "^3.0.0",
+    "@types/node": "^22.15.30",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "eslint": "^9.28.0",
+    "prisma": "^6.9.0",
+    "tsup": "^8.5.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.2"
+  },
+  "dependencies": {
+    "@fastify/jwt": "^9.1.0",
+    "@prisma/client": "^6.9.0",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.5.0",
+    "fastify": "^5.3.3",
+    "zod": "^3.25.56"
+  }
+}
