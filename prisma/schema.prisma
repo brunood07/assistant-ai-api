@@ -9,7 +9,7 @@ datasource db {
 }
 
 model User {
-  id        String @id @default(uuid())
+  id        String @id
   firstName String @map("first_name")
   lastName  String @map("last_name")
   email     String @unique @map("email")
@@ -23,15 +23,17 @@ model User {
 }
 
 model Assistants {
-  id                  String                @id @default(uuid())
-  assistantId         String                @unique
-  createdAt           DateTime              @default(now())
-  updatedAt           DateTime              @updatedAt
-  AssistantPermission AssistantPermission[]
+  id                   String                @id
+  assistantName        String                @map("assistant_name")
+  assistantDescription String                @map("assistant_description")
+  assistantId          String                @unique
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  AssistantPermission  AssistantPermission[]
 }
 
 model AssistantPermission {
-  id          String     @id @default(uuid())
+  id          String     @id
   Assistant   Assistants @relation(fields: [assistantId], references: [id])
   assistantId String
   User        User       @relation(fields: [userId], references: [id])
