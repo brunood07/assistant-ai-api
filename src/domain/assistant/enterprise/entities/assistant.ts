@@ -1,6 +1,7 @@
 import { randomUUID } from "crypto";
 
 export interface UserProps {
+  id?: string;
   assistantId: string;
   assistantName: string;
   assistantDescription: string;
@@ -8,7 +9,7 @@ export interface UserProps {
 
 export class Assistant {
   private props: UserProps;
-  private _id?: string;
+  private _id: string;
 
   private constructor(props: UserProps, id?: string) {
     this.props = props;
