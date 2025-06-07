@@ -10,6 +10,6 @@ export class BcryptHasher implements HashComparer, HasherGenerator {
   }
 
   async hash(plain: string): Promise<string> {
-    return hash(plain, 15)
+    return hash(plain, this.HASH_SALT_LENGTH)
   }
 }

@@ -11,7 +11,7 @@ export class OpenAiProvider implements AiProvider {
 
   async createAssistant(assistantName: string, fileId: string): Promise<CreateAssistantResponseDTO> {
     const assistant = await this.openai.beta.assistants.create({
-      name: "Assistente de Código",
+      name: assistantName,
       instructions: "Você é um assistente de código que segue padrões de um projeto descrito no arquivo.",
       tools: [{ type: "code_interpreter" }],
       tool_resources: {
